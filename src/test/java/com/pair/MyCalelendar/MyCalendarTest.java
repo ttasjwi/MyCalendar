@@ -1,14 +1,14 @@
 package com.pair.MyCalelendar;
 
-import java.time.LocalDate;
-import net.bytebuddy.asm.Advice;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 class MyCalendarTest {
 
@@ -56,5 +56,18 @@ class MyCalendarTest {
         softAssertions.assertThat(month).isEqualTo(1);
         softAssertions.assertThat(dayOfMonth).isEqualTo(17);
         softAssertions.assertAll();
+    }
+
+    @Test
+    @DisplayName("문자열 반환")
+    void name() {
+        //given
+        LocalDate localDate = MyCalendar.of(2022,07,18);
+
+        //when
+        String result = MyCalendar.formatToKorean(localDate);
+
+        //then
+        assertThat(result).isEqualTo("2022년 07월 18일");
     }
 }

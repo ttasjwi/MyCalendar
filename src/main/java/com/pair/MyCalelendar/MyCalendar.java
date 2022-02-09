@@ -3,6 +3,7 @@ package com.pair.MyCalelendar;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class MyCalendar {
 
@@ -19,5 +20,10 @@ public class MyCalendar {
 
     public static LocalDate of(int year, int month, int date) {
         return LocalDate.of(year, month, date);
+    }
+
+    public static String formatToKorean(LocalDate localDate) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일");
+        return localDate.format(formatter);
     }
 }
