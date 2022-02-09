@@ -16,4 +16,8 @@ public class MyCalendar {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return LocalDate.parse(str, formatter);
     }
+
+    public static LocalDate of(int year, int month, int date) {
+        return LocalDate.of(year, month, date);
+    }
 }

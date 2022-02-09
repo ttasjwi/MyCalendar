@@ -39,4 +39,22 @@ class MyCalendarTest {
         softAssertions.assertThat(dayOfMonth).isEqualTo(9);
         softAssertions.assertAll();
     }
+
+    @Test
+    @DisplayName("년월일 숫자값 입력 Date 인스턴스를 리턴한다.")
+    void of2() {
+        //given
+        LocalDate date = MyCalendar.of(2022, 01, 17);
+        //when
+        int year = date.getYear();
+        int month = date.getMonthValue();
+        int dayOfMonth = date.getDayOfMonth();
+
+        //then
+        SoftAssertions softAssertions = new SoftAssertions();
+        softAssertions.assertThat(year).isEqualTo(2022);
+        softAssertions.assertThat(month).isEqualTo(1);
+        softAssertions.assertThat(dayOfMonth).isEqualTo(17);
+        softAssertions.assertAll();
+    }
 }
